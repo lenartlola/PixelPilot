@@ -26,5 +26,5 @@ please open an issue or a pull request on the repository.
 
 ## License
 
-PixelPilot is licensed under the MIT License. See [LICENSE]() for more information.
+PixelPilot is licensed under the MIT License. See [LICENSE](https://github.com/caf3d00d/PixelPilot/blob/main/LICENSE) for more information.
 
