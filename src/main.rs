@@ -10,9 +10,6 @@ fn draw_node(node: &Node, indent: usize) {
     match &node.node_type {
         NodeType::Element(element_data) => {
             println!("<{}>", element_data.tag_name);
-            for child in &node.children {
-                draw_node(child, indent + 2);
-            }
         },
         NodeType::Text(text) => {
             println!("#text {}", text);
@@ -22,15 +19,17 @@ fn draw_node(node: &Node, indent: usize) {
         },
         NodeType::Document => {
             println!("#document");
-            for child in &node.children {
-                draw_node(child, indent + 2);
-            }
         },
         NodeType::Doctype => {
             println!("<!DOCTYPE html>");
         }
     }
+
+    for child in &node.children {
+        draw_node(child, indent + 2);
+    }
 }
+
 
 fn main() {
     // Create an element node

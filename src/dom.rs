@@ -14,8 +14,8 @@ pub enum NodeType {
 // ElementData holds data for element nodes
 #[derive(Debug)]
 pub struct ElementData {
-    pub(crate) tag_name: String,
-    attributes: Vec<Attribute>,
+    pub tag_name: String,
+    element_attributes: Vec<Attribute>,
 }
 
 // Attribute holds data for a single attribute
@@ -39,18 +39,17 @@ pub struct Node {
 }
 
 impl Node {
-    pub fn new_element(tag_name: String, attributes: Vec<Attribute>) -> Node {
-        let attribute = attributes.clone();
+    pub fn new_element(tag_name: String, attr: Vec<Attribute>) -> Node {
+        let attribute = attr.clone();
         Node {
             children: Vec::new(),
-            node_type: NodeType::Element(ElementData { tag_name, attributes }),
+            node_type: NodeType::Element(ElementData { tag_name, element_attributes: attr }),
             parent: None,
             attributes: Some(attribute),
             namespace: None,
             text: None,
         }
     }
-
 
     pub fn new_text(text: &str) -> Node {
         Node {
