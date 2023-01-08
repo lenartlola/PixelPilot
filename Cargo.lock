@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "BrowserEngine"
+name = "pixel_pilot"
 version = "0.1.0"
