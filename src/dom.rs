@@ -19,8 +19,7 @@ pub struct ElementData {
 }
 
 // Attribute holds data for a single attribute
-#[derive(Debug)]
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct Attribute {
     name: String,
     value: String,
@@ -43,7 +42,10 @@ impl Node {
         let attribute = attr.clone();
         Node {
             children: Vec::new(),
-            node_type: NodeType::Element(ElementData { tag_name, element_attributes: attr }),
+            node_type: NodeType::Element(ElementData {
+                tag_name,
+                element_attributes: attr,
+            }),
             parent: None,
             attributes: Some(attribute),
             namespace: None,
@@ -83,7 +85,7 @@ impl Node {
             text: None,
         }
     }
-    
+
     pub fn new_doctype() -> Node {
         Node {
             children: Vec::new(),
